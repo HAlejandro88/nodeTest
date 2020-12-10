@@ -1,4 +1,4 @@
-![Travis (.org)](https://img.shields.io/travis/HAlejandro88/nodeTest?style=for-the-badge)
+[![Build Status](https://travis-ci.org/HAlejandro88/nodeTest.svg?branch=master)](https://travis-ci.org/HAlejandro88/nodeTest)
 
 # Node Tests Rest API
 
