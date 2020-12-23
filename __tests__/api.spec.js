@@ -17,10 +17,10 @@ describe('test all endpoint of users', () => {
     test('test route with parameters', done => {
         request(app)
             .get('/api/v1/users/user1')
-            .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
             .expect(200, done);
     });
+
 
    test('response with json with user not found', done => {
        request(app)
@@ -67,7 +67,7 @@ describe('test post routes', () => {
     })
     
     test('response error with the body no its correct', done => {
-        const data = { username: 'hello', pass: 'anything' };
+        const data = { username: 'hells' };
         request(app)
             .post('/api/v1/users')
             .send( data )
