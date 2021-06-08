@@ -8,4 +8,7 @@ install:
   - npm install
 
 script:
-  - npm run test
+  - yarn test
+
+services:
+  - mongodb

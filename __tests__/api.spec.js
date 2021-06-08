@@ -1,16 +1,22 @@
 const request  = require('supertest');
-const app = require('../index');
+const mongoose =  require('mongoose')
+const {app, server} = require('../index');
 
 
 // Testing get all users endpoint
 
 describe('test all endpoint of users', () => {
 
+    afterAll(() => {
+        mongoose.connection.close()
+        return server.close()
+    })
+
     test('respond with json content', done => {
         request(app)
             .get('/api/v1/users')
             .set('Accept', 'application/json')
-            .expect('Content-Type', /json/)
+            //.expect('Content-Type', /json/)
             .expect(200, done);
     });
 
@@ -18,7 +24,11 @@ describe('test all endpoint of users', () => {
         request(app)
             .get('/api/v1/users/user1')
             .expect('Content-Type', /json/)
-            .expect(200, done);
+            .expect(200)
+            .end(err => {
+                if (err) return done(err);
+                done();
+            });;
     });
 
 
@@ -51,6 +61,11 @@ describe('test all endpoint of users', () => {
 });
 
 describe('test post routes', () => {
+    afterAll(() => {
+
+       return server.close()
+    })
+
     test('response with 201 with add created', done => {
         const data = { username: 'Alex', password: 12345678 }
         request(app)
@@ -65,7 +80,7 @@ describe('test post routes', () => {
                 done();
             })
     })
-    
+
     test('response error with the body no its correct', done => {
         const data = { username: 'hells' };
         request(app)
