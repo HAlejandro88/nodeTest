@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose --silent ",
-    "test:watch": "npm run test -- --watch --detectOpenHandles",
+    "test": "jest --verbose --silent --detectOpenHandles",
+    "test:watch": "npm run test -- --watch ",
+    "deploy": "npm run test && exit 0",
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
