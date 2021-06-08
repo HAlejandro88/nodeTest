@@ -2,11 +2,12 @@
   "name": "nodeTest",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.js && exit 1",
   "scripts": {
-    "test": "jest",
+    "test:covergae": "jest",
     "test:verbose": "jest --verbose --silent --detectOpenHandles",
     "test:watch": "npm run test -- --watch ",
+    "test": "jest --coverage",
     "deploy": "\"echo \\\"Error: no test specified\\\" && exit 1",
     "start": "node index.js",
     "dev": "nodemon index.js"
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "ava": "^3.15.0",
+    "coveralls": "^3.1.0",
     "jest": "^26.6.3",
     "supertest": "^6.1.3"
   }

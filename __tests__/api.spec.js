@@ -62,7 +62,7 @@ describe('test all endpoint of users', () => {
 
 describe('test post routes', () => {
     afterAll(() => {
-
+        mongoose.connection.close()
        return server.close()
     })
 

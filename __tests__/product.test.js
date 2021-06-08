@@ -1,5 +1,6 @@
 const request  = require('supertest');
 const Product = require('../models/Product.model')
+const mongoose = require('mongoose')
 const {app, server} = require('../index');
 
 
@@ -29,6 +30,7 @@ describe('testing products apis', () => {
     ]
 
     afterAll(() => {
+        mongoose.connection.close()
         return server.close()
     });
 
